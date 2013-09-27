@@ -10,7 +10,6 @@ import org.json.JSONObject;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.text.Html;
 
 import org.apache.cordova.CallbackContext;
