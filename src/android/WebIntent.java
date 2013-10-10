@@ -77,7 +77,7 @@ public class WebIntent extends CordovaPlugin {
                     callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
                     return false;
                 }
-                Intent i = (this.cordova.getActivity()).getIntent();
+                Intent i = this.cordova.getActivity().getIntent();
                 String extraName = args.getString(0);
                 callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, i.hasExtra(extraName)));
                 return true;
@@ -87,7 +87,7 @@ public class WebIntent extends CordovaPlugin {
                     callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
                     return false;
                 }
-                Intent i = (this.cordova.getActivity()).getIntent();
+                Intent i = this.cordova.getActivity().getIntent();
                 String extraName = args.getString(0);
                 if (i.hasExtra(extraName)) {
                     callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, i.getStringExtra(extraName)));
@@ -102,7 +102,7 @@ public class WebIntent extends CordovaPlugin {
                     return false;
                 }
 
-                Intent i = (this.cordova.getActivity()).getIntent();
+                Intent i = this.cordova.getActivity().getIntent();
                 String uri = i.getDataString();
                 callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, uri));
                 return true;
@@ -188,7 +188,7 @@ public class WebIntent extends CordovaPlugin {
                 i.putExtra(key, value);
             }
         }
-        (this.cordova.getActivity()).startActivity(i);
+        this.cordova.getActivity().startActivity(i);
     }
 
     void sendBroadcast(String action, Map<String, String> extras) {
@@ -199,6 +199,6 @@ public class WebIntent extends CordovaPlugin {
             intent.putExtra(key, value);
         }
 
-        (this.cordova.getActivity()).sendBroadcast(intent);
+        this.cordova.getActivity().sendBroadcast(intent);
     }
 }
